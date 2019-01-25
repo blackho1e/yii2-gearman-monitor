@@ -1,0 +1,25 @@
+{
+  "name": "blackho1e/yii2-gearman-monitor",
+  "description": "yii2-gearman-monitor",
+  "keywords": ["yii2", "extension"],
+  "homepage": "https://github.com/blackho1e/yii2-gearman-monitor",
+  "type": "yii2-extension",
+  "authors": [
+    {
+      "name": "Minju Kang",
+      "email": "blackdole@naver.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "^2.0.6",
+    "maknz/slack": "^1.7.0",
+    "necromant2005/gearman-stats": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "blackho1e\\yii2\\gearman\\monitor\\": "src/"
+    }
+  }
+}
+
