@@ -17,31 +17,33 @@ composer require blackho1e/yii2-gearman-monitor "dev-master"
 * console/config/main.php 파일에 추가:
 
 ```php
-'gearman-monitor' => [
-    'class' => 'blackho1e\yii2\gearman\monitor\Module',
-    'params' => [
-        'servers' => [
-            [
-                'host' => '127.0.0.1',
-                'port' => 4730,
-                'limit' => 5,  // 5개이상인경우 알림
-                'functions' => [  // 모니터링할 평션 리스트
-                    'test1',
-                    'test2',
+'modules' => [
+    'gearman-monitor' => [
+        'class' => 'blackho1e\yii2\gearman\monitor\Module',
+        'params' => [
+            'servers' => [
+                [
+                    'host' => '127.0.0.1',
+                    'port' => 4730,
+                    'limit' => 5,  // 5개이상인경우 알림
+                    'functions' => [  // 모니터링할 평션 리스트
+                        'test1',
+                        'test2',
+                    ],
                 ],
             ],
-        ],
-        'slack' => [
-            'url' => 'https://hooks.slack.com/services/xxxxxxxxx/xxx...',
-            'options' => [
-                'username' => 'blackho1e',
-                'channel' => '#general',
-                'icon' => ':sunflower:',
-                'link_names' => true
+            'slack' => [
+                'url' => 'https://hooks.slack.com/services/xxxxxxxxx/xxx...',
+                'options' => [
+                    'username' => 'blackho1e',
+                    'channel' => '#general',
+                    'icon' => ':sunflower:',
+                    'link_names' => true
+                ]
             ]
         ]
     ]
-],
+]
 ```
 
 * 시스템에 crontab 등록 `$ sudo crontab -e`:
