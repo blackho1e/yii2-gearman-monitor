@@ -22,7 +22,7 @@ class DefaultController extends Controller
             foreach ($queues as $queue) {
                 $functions = $servers[$i]['functions'];
                 if (in_array($queue['name'], $functions)) {
-                    $message = "Name: " . $queue['name'].  "Count: " . $queue['queue'] . PHP_EOL;
+                    $message = date('Y-m-d H:i:s') . ": " . $queue['name'].  "Count: " . $queue['queue'] . PHP_EOL;
                     $this->stdout($message);
                     if ($queue['queue'] >= $servers[$i]['limit']) {
                         if (!empty(Yii::$app->getModule('gearman-monitor')->params['slack'])) {
