@@ -28,7 +28,7 @@ class DefaultController extends Controller
                         if (!empty(Yii::$app->getModule('gearman-monitor')->params['slack'])) {
                             $url = Yii::$app->getModule('gearman-monitor')->params['slack']['url'];
                             $options = Yii::$app->getModule('gearman-monitor')->params['slack']['options'];
-                            $client = new \Maknz\Slack\Client($url, $options);
+                            $client = new \Maknz\Slack\Client($url, $options, $guzzle=new \GuzzleHttp\Client(['verify'=>false]));
                             $client->attach([
                                 'color' => '#FF0000',
                                 'fields' => [
